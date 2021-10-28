@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const users = require('./routes/users');
 const tasks = require('./routes/tasks');
 const connectDB = require('./db/connect');
 require('dotenv').config();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 // routes
 
+app.use('/api/v1/users', users);
 app.use('/api/v1/tasks', tasks);
 
 app.use(notFound);
